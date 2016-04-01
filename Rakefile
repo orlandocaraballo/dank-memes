@@ -1,9 +1,9 @@
 require "sinatra/activerecord/rake"
 require "./dank_memes"
 
-namespace :db do
-  task :populate_memes do
-    response = HTTParty.get('http://www.reddit.com/r/dankmemes/top.json', verify: false).parsed_response
+namespace :meme do
+  task :reddit do
+    response = HTTParty.get("http://www.reddit.com/r/dankmemes/top.json", verify: false).parsed_response
     
     unless response.nil?
       Meme.destroy_all
@@ -13,11 +13,20 @@ namespace :db do
       end.each do |item_hash|
         Meme.create(
           source: :reddit,
+          protocol: :https,
+          domain: "reddit.com",
           title: item_hash["data"]["title"],
           permalink: item_hash["data"]["permalink"],
-          asset_url: item_hash["data"]["url"]
+          asset_url: item_hash["data"]["url"],
+          asset_type: :image
         )
       end
     end
+  end
+
+  task :tumblr do
+    response = HTTParty.get("http://mindvsspirit.tumblr.com/api/read", verify: false).parsed_response
+
+    p response["tumblr"]["tumblelog"]
   end
 end

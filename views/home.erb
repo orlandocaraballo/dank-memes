@@ -2,7 +2,7 @@
   <% @memes.each do |meme| %>
     <li>
       <h2><%= meme.title %></h2>
-      <a href="https://reddit.com<%= meme.permalink %>">
+      <a href="<%= meme.protocol %>://<%= meme.domain%>/<%= meme.permalink %>">
         <img src="<%= meme.asset_url %>" />
       </a>
       <span>Source: <%= meme.source.to_s.capitalize %></span>
