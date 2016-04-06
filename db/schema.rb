@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401191349) do
+ActiveRecord::Schema.define(version: 20160404211520) do
 
   create_table "memes", force: :cascade do |t|
-    t.string "source"
-    t.string "title"
-    t.string "permalink"
-    t.string "asset_url"
-    t.string "domain"
-    t.string "protocol"
-    t.string "asset_type"
+    t.string   "source"
+    t.string   "title"
+    t.string   "permalink"
+    t.string   "asset_url"
+    t.string   "domain"
+    t.string   "protocol"
+    t.string   "asset_type"
+    t.datetime "asset_created_at"
   end
 
 end

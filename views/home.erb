@@ -1,11 +1,19 @@
 <ul>
-  <% @memes.each do |meme| %>
-    <li>
-      <h2><%= meme.title %></h2>
-      <a href="<%= meme.protocol %>://<%= meme.domain%>/<%= meme.permalink %>">
-        <img src="<%= meme.asset_url %>" />
-      </a>
-      <span>Source: <%= meme.source.to_s.capitalize %></span>
-    </li>
+  <% if @memes.present? %>
+    <% @memes.each do |meme| %>
+      <li class="clearfix">
+        <div class="overlay">
+          <a href="<%= meme.protocol %>://<%= meme.domain%>/<%= meme.permalink %>">
+            <img src="<%= meme.asset_url %>" />
+          </a>
+        </div>
+        <div class="extra">
+          <span class="source"><%= meme.source.to_s.capitalize %></span>
+          <span class="asset_created_at"><%= meme.asset_created_at.strftime("%B %e, %Y | %l:%M %p") %></span>
+        </div>
+      </li>
+    <% end %>
+  <% else %>
+    <p>Sorry, no memes are currently available</p>
   <% end %>
 </ul>
