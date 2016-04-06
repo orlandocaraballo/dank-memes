@@ -2,6 +2,9 @@
   <% if @memes.present? %>
     <% @memes.each do |meme| %>
       <li class="clearfix">
+        <% if meme.title.present? %>
+          <h2 class="extra"><%= meme.title %></h2>
+        <% end %>
         <div class="overlay">
           <a href="<%= meme.protocol %>://<%= meme.domain%>/<%= meme.permalink %>">
             <img src="<%= meme.asset_url %>" />
