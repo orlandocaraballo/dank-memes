@@ -53,7 +53,7 @@ namespace :meme do
         protocol: :http,
         domain: "#{args.blog}.tumblr.com",
         title: item_hash["source_title"],
-        permalink: item_hash["post_url"],
+        permalink: item_hash["post_url"].sub("http://#{args.blog}.tumblr.com/", ""),
         asset_url: item_hash["photos"][0]["original_size"]["url"],
         asset_type: :image,
         asset_created_at: item_hash["date"]
