@@ -2,6 +2,13 @@ require "sinatra/activerecord/rake"
 require "./dank_memes"
 
 namespace :meme do
+  desc "Wipes and downloads all memes"
+  task :wipe_and_get_all do
+    Rake::Task["meme:wipe"].invoke
+    Rake::Task["meme:all_reddit"].invoke
+    Rake::Task["meme:all_tumblr"].invoke
+  end
+
   desc "Wipes db of memes"
   task :wipe do
     Meme.destroy_all
