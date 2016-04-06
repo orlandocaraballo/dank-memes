@@ -3,7 +3,9 @@ require "sinatra/activerecord"
 require "./models"
 require "./parser"
 
-set :database, "sqlite3:dank_memes.db"
+configure :development do
+  set :database, "sqlite3:dank_memes.db"
+end
 
 get "/" do
   @title = "Dank Memes"
