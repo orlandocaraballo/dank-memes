@@ -11,7 +11,9 @@
           </a>
         </div>
         <div class="extra">
-          <span class="source"><%= meme.source.to_s.capitalize %></span>
+          <span class="source">
+            <a href="<%= meme.source_url %>" /><%= meme.source.to_s.capitalize %></a>
+          </span>
           <span class="asset_created_at"><%= meme.asset_created_at.strftime("%B %e, %Y | %l:%M %p") %></span>
         </div>
       </li>

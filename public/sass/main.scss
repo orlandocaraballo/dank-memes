@@ -87,6 +87,14 @@ span {
 
   &.source {
     float: left;
+
+    a { 
+      color: $black;
+
+      &:hover {
+        color: $orange;
+      }
+    }
   }
 
   &.asset_created_at {

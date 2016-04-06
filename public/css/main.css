@@ -64,6 +64,10 @@ span {
   color: #333; }
   span.source {
     float: left; }
+    span.source a {
+      color: #333; }
+      span.source a:hover {
+        color: #FF7846; }
   span.asset_created_at {
     float: right; }
 
