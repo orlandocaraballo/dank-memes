@@ -50,7 +50,7 @@ li {
   li .extra {
     overflow: hidden;
     height: 0;
-    transition: all .7s; }
+    transition: all 0.1s; }
   li:hover .extra {
     height: 1.7em; }
 
